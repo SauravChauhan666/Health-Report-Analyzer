@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Report Summary</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <h1>Health Report Summary</h1>
+    <p class="subtitle">Here’s the analysis of your report.</p>
+  </header>
+
+  <main class="main-content">
+    <div class="upload-card">
+      <div class="results-content">
+        <div class="analysis-text">
+          {{ result | safe }}
+        </div>
+      </div>
+      <div class="results-actions">
+        <a href="/" class="analyze-another">Analyze Another Report</a>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

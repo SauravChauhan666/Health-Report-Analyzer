@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Health Report Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon">🏥</div>
+      <h1>Health Report Analyzer</h1>
+    </div>
+    <p class="subtitle">Upload your health report to get AI-powered analysis</p>
+  </header>
+
+  <main class="main-content">
+    <div class="upload-section">
+      <div class="upload-card">
+        <div class="upload-header">
+          <h2>Upload Your Report</h2>
+          <p>Only PDF or PNG files under 10MB are allowed</p>
+        </div>
+
+        <form id="uploadForm" method="POST" enctype="multipart/form-data">
+          <div class="file-upload-area" id="fileUploadArea">
+            <div class="upload-icon">📄</div>
+            <div class="upload-text">
+              <h3>Drag and drop your file here</h3>
+              <p>or click to browse</p>
+              <span class="file-types">PDF, PNG supported</span>
+            </div>
+            <input type="file" id="fileInput" name="file" accept=".pdf,.png,.jpg,.jpeg" required>
+          </div>
+
+          <div class="file-info" id="fileInfo" style="display: none;">
+            <div class="file-details">
+              <span class="file-icon">📄</span>
+              <div class="file-text">
+                <div class="file-name" id="fileName"></div>
+                <div class="file-size" id="fileSize"></div>
+              </div>
+              <button type="button" class="remove-file" id="removeFile">×</button>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn" id="submitBtn" disabled>
+              <span>Analyze Report</span> 🔍
+            </button>
+          </div>
+        </form>
+
+        <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+          <div class="spinner"></div>
+          <p>Analyzing your report...</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
